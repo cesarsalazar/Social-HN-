@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script src="jquery.js"></script>
+<script>
+
+function onRequest(request, sender, callback) {
+  if (request.action == 'fetchNews') {
+    $.getJSON('http://api.ihackernews.com/by/cesarsalazar', function(data) {
+      callback(data);
+    });
+  }
+};
+
+chrome.extension.onRequest.addListener(onRequest);
+
+</script>
+</body>
+</html>
