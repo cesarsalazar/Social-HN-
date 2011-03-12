@@ -8,11 +8,13 @@
 <script>
 
 function onRequest(request, sender, callback) {
+  var usernames = ['cesarsalazar','DFectuoso','andreshb']
   var username = 'cesarsalazar';
   
   // Fetch all user's posts
-  //Order chronologically
-  //Pick last 5 posts
+  // Order chronologically
+  // Pick last 5 posts
+  // Maybe it's better to make this a server side thing
   
   if (request.action == 'fetchNews') {
     $.getJSON("http://api.ihackernews.com/by/"+username, function(data) {

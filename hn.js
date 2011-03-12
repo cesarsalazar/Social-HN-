@@ -1,11 +1,17 @@
-$(function(){
+  function createList(data){
+    var items = data
+    $(function(){
+      manipulateNewsFeed(items);
+    });
+  }
 
   function manipulateNewsFeed(data) {
     var rows = '';
     $.each(data.items, function(index, item){
-      item.domain = jQuery.url.setUrl(item.url).attr("host");  
+      item.domain = jQuery.url.setUrl(item.url).attr("host");
+      item.number = index+1;  
       var row =   '<tr>'
-              +     '<td align=right valign=top class="title">X.</td>'
+              +     '<td align=right valign=top class="title" style="color:#ff6600;">'+item.number+'.</td>'
               +     '<td>'
               +       '<center>'
               +         '<a id=up_2314532 href="item?id='+item.id+'" target="blank">'
@@ -33,6 +39,4 @@ $(function(){
     $('tbody').eq(2).prepend(rows); 
   };
   
-  chrome.extension.sendRequest({'action' : 'fetchNews'}, manipulateNewsFeed);
-
-})
+  chrome.extension.sendRequest({'action' : 'fetchNews'}, createList);
