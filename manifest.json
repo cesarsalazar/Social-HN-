@@ -11,8 +11,8 @@
   ],
   "content_scripts": [
     {
-      "matches": ["http://news.ycombinator.com/*"],
-      "js": ["jquery.js", "hn.js"]
+      "matches": ["http://news.ycombinator.com/"],
+      "js": ["jquery.js", "jquery.url.js", "hn.js"]
     }
   ]
 }

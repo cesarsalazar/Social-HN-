@@ -4,11 +4,18 @@
 </head>
 <body>
 <script src="jquery.js"></script>
+<script src="jquery.url.js"></script>
 <script>
 
 function onRequest(request, sender, callback) {
+  var username = 'cesarsalazar';
+  
+  // Fetch all user's posts
+  //Order chronologically
+  //Pick last 5 posts
+  
   if (request.action == 'fetchNews') {
-    $.getJSON('http://api.ihackernews.com/by/cesarsalazar', function(data) {
+    $.getJSON("http://api.ihackernews.com/by/"+username, function(data) {
       callback(data);
     });
   }
